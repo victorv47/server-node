@@ -7,7 +7,7 @@ import departments from './departments'
 const router = Router()
 
 router.get('/', (req, res) => {
-  res.send({ msg: 'Inside API Endpoint' })
+  res.send({ msg: 'Inside API Endpoints' })
 })
 
 router.use('/persons', persons)
