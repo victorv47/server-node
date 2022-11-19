@@ -19,7 +19,7 @@ model Company {
 }
 
 model Department {
-  DepartmentId  String      @id @default(uuid())
+  departmentId  String      @id @default(uuid())
   name          String
   companyId     String
   company       Company     @relation(fields: [companyId], references: [companyId])
@@ -34,7 +34,7 @@ model Employee {
   email         String @unique
   title         String
   departmentId  String
-  department    Department @relation(fields: [departmentId], references: [DepartmentId])
+  department    Department @relation(fields: [departmentId], references: [departmentId])
   quote         String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
