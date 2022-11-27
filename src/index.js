@@ -21,7 +21,7 @@ app.use(
   }),
 )
 app.use(morgan(process.env.MORGAN_LOG))
-app.use(cors({ origin: process.env.ORIGIN }))
+app.use(cors({ origin: process.env.CORS_ORIGIN }))
 app.use(helmet())
 app.use(bodyParser.json())
 
