@@ -5,6 +5,7 @@ import morgan from 'morgan'
 import cors from 'cors'
 import helmet from 'helmet'
 import bodyParser from 'body-parser'
+import basicAuth from 'express-basic-auth'
 
 import logger from './utils/logger'
 import router from './routes'
@@ -13,6 +14,12 @@ import { notFound, errorHandler } from './utils/errors'
 const port = Number(process.env.PORT)
 
 const app = express()
+
+router.use(
+  basicAuth({
+    users: { [process.env.ADMIN_USER]: process.env.ADMIN_PASSWORD },
+  }),
+)
 
 app.use(morgan(process.env.MORGAN_LOG))
 app.use(
